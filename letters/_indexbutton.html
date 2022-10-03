@@ -1,0 +1,82 @@
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee+Spice">
+</head>
+
+<script>
+    let pg = location.href.split("?")[1].split("=")[1].toLowerCase();
+    console.log("pg: ", pg);
+
+    function prev() {
+        if (pg == 'a') {
+            return 'z';
+        } else {
+            return String.fromCharCode(pg.charCodeAt(0) - 1)
+        }
+    }
+    function next() {
+        if (pg == 'z') {
+            return 'a'
+        } else {
+            return String.fromCharCode(pg.charCodeAt(0) + 1)
+        }
+    }
+</script>
+
+<style>
+    .ibtn {
+        margin: 0;
+        height: 60px;
+        width: 100px;
+        font-size: 30px;
+        color: darkblue;
+        background-color: khaki;
+        border-radius: 20px;
+        font-family: "Garamond", serif;
+        transition: 0.4s;
+    }
+
+    .ibtn:hover {
+        background-color: aquamarine;
+    }
+
+    .prev {
+        text-align: center;
+        margin: 0;
+        height: 60px;
+        width: 30px;
+        font-size: 30px;
+        color: darkblue;
+        background-color: khaki;
+        border-radius: 20px;
+        font-family: "Bungee Spice", serif;
+        transition: 0.4s;
+    }
+
+    .prev:hover {
+        background-color: aquamarine;
+    }
+
+    .next {
+        text-align: left;
+        margin: 0;
+        height: 60px;
+        width: 30px;
+        font-size: 30px;
+        color: darkblue;
+        background-color: khaki;
+        border-radius: 20px;
+        font-family: "Bungee Spice", serif;
+        transition: 0.4s;
+    }
+
+    .next:hover {
+        background-color: aquamarine;
+    }
+</style>
+
+<body style="overflow: hidden;">
+    <button class="ibtn" onclick="parent.location.href = '../index.html'"><span>Index</span></button>
+    <button class="prev" onclick="parent.location.href = `${prev()}.html`">&lt;</button>
+    <button class="next" onclick="parent.location.href = `${next()}.html`">&gt;</button>
+</body>
